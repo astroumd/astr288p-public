@@ -1,2 +1,3 @@
 # astr288p
-material for ASTR288P Spring 2017
+Master material for ASTR288P. Each teaching session this full github will
+be trimmed down and filled incrementally for the students
