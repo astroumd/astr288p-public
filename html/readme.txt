@@ -1,0 +1,3 @@
+UNIX and Scientific Computing  (Fall 2016)
+
+...  watch this space ...
