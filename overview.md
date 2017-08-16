@@ -1,19 +1,22 @@
-# Overview
+# Instructor Background Overview
 
-Students should see the unix environment being built up little by
+Students should see their UNIX environment being built up little by
 little, hence a phased approach. With as little hiding of details as
-possible.
+possible. For example, we give them some PDF lecture notes, but we
+also keep the ODP files. Of course not the answers to the homework. 
 
 We will thus maintain a master git repo (with answers) that the
 students never see.  This causes a bit of extra work on the
-instructor, and it means the student git repo will need to be
-incrementally grow, and any mistakes that were fixed in the student
-repo will need to be placed back into the master (astroumd) repo.
+instructor, and it is also meant that this way you can incrementally
+grow the student git repo.  Any mistakes that were fixed in the
+student repo will need to be placed back into the master (astroumd)
+repo.
 
 1) simple PDF for the first (and maybe 2nd) lecture, with on-screen examples of the shell.
-This also means the corresponding ODP files are in git, that the students can see.
+Pretty soon in the 2nd lecture the students will also have to install python (e.g. via
+anaconda or miniconda)
 
-2) UNIX intro should contain
+2) UNIX intro should contain:
 
    1) logging in the "URSA" workstations with their "astro" account (not "umd")
    1) using a linux window manager (likely to be gnome3 now), although class does not depend on it
@@ -24,9 +27,9 @@ This also means the corresponding ODP files are in git, that the students can se
        2) but ...
        3) the BIG advantage of using your own laptop is that you have something working at home, your
        	  'astro' account will eventually disappear as well.
-   1) each lesson should use and build up general unix knowledge
+   1) during the semester each lesson should use and build up general unix knowledge (e.g. command of the week)
    
-3) PYTHON intro with jupyter notebooks
+3) PYTHON intro with jupyter notebooks contains:
 
    1) we let the students install their own miniconda (or anaconda), python version 3 !!! 
    1) this means we will not use virtualenv like methods to share the distro
