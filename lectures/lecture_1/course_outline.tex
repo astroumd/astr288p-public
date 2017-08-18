@@ -7,6 +7,8 @@
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
+\usepackage{hyperref}
+
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
@@ -33,50 +35,115 @@
 
 \begin{frame}[fragile]{About Me}
 \begin{itemize}
-\item Office: ATL
-\item Office hours: Friday 1PM-2PM (before class)
-\item I'm actually based at Goddard, so I'm not around on other days.
+	\item Office: ATL
+	\item Office hours: Friday 1PM-2PM (before class)
+	\item I'm actually based at Goddard, so I'm not around on other days.
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Course format}
 \begin{itemize}
-\item Homework: We have them.
-\item End-of-term project. 
+	\item Homework: We have them.
+	\item End-of-term project. 
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{What we'll cover}
-
-UNIX:
-\begin{itemize}
-\item Base commands (\textbf{cd, mkdir, ls}...)
-\end{itemize}
-
+\begin{frame}[fragile]{Resources}
+	Books: Is that like the Internet but made out of a tree? 
+	
+	Online: 
+	\begin{itemize}
+		\item Wikipedia		\item \url{http://www.stackoverflow.com} Any Questions		\item \url{http://www.codecademy.com} Python, Git, ...		\item \url{http://tutorialspoint.com/cprogramming} C language		\item \url{http://projecteuler.net} Challenging Problems    		\item \url{http://rosettacode.org/wiki/Averages/Arithmetic_mean}
+	\end{itemize}
 
 \end{frame}
 
+\begin{frame}[fragile]{What we'll cover (more advanced topics)}
+
+    \begin{itemize}
+    	\item UNIX:
+    	\begin{itemize}
+    		\item Shell (we will use \textbf{bash} but others exist), shell scripting
+    		\item File system (/, /usr/bin, \$HOME, etc.)
+    		\item Window managers, desktop environments
+    		\item Editors (\textbf{emacs}, vi, gedit, pico, \textbf{sublime}, many others) -- people have strong opinions but I do not!
+    		\item Base commands (\textbf{cd, mkdir, ls, ssh}...)
+		\item Tools (\textbf{git}, gcc, )
+    	\end{itemize}
+    	\item Scripting
+    	\begin{itemize}
+    		\item Python
+    		\item ipython
+    		\item Jupyter
+    	\end{itemize}
+	\item Word processing with \LaTeX:
+	\begin{itemize}
+		\item Not included last time this course was taught but I think it's important to learn early on.
+		\item This document produced using \LaTeX.
+	\end{itemize}
+	
+	 \end{itemize}
+\end{frame}	
+
 \begin{frame}[fragile]{What we'll cover}
-
-Word processing with \LaTeX:
-\begin{itemize}
-\item Not included last time this course was taught but I think it's important to learn early on.
-\item This document produced using \LaTeX.
-\end{itemize}
-
+    \begin{itemize}
+		
+    	\item Object Oriented Programming
+    	\item Compiled code
+    	\begin{itemize}
+    		\item C/C++
+    		\item Fortran is a thing that exists but we won't use it.
+    	\end{itemize}		
+    	
+    	\item Data analysis
+	\begin{itemize}
+		\item Compiling and running analysis code
+    		\item Analysis and plotting
+    	\end{itemize}		
+    
+    \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]{What we probably wont cover}
 
 \begin{itemize}
-\item Machine learning
-\item Multi-threaded / parallel programming (OpenMP, MPI, CUDA)
-\item ...
+	\item Machine learning
+	\item Multi-threaded / parallel programming (OpenMP, MPI, CUDA)
+	\item ...
 \end{itemize}
 
 
 \end{frame}
 
+\begin{frame}[fragile]{Hardware}
+Lab machines:
+\begin{itemize}
+	\item Master: ursa.astro.umd.edu
+	\item Nodes: lab001, lab002, ... lab013
+	\item Printer: labs.astro.umd.edu
+\end{itemize}
+
+
+Virtual machines:
+\begin{itemize}
+	\item \textbf{virtualbox}
+	\item vmware
+\end{itemize}
+
+Your own machine:
+\begin{itemize}
+	\item Linux (Ubuntu, Redhat, Fedora, Mint, debian, gentoo...) -- You can dual-boot if you want. 
+	\item Mac OS X
+	\begin{itemize}
+		\item You need Xquartz installed so certain features will work. 
+	\end{itemize}
+	\item Windows -- Not recommended for this class
+	\begin{itemize}
+		\item putty, Windows10 bash, VNC viewer
+		\item Probably easier just to run a virtual machine (this is what I do). 
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 \end{document}
