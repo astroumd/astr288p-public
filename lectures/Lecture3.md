@@ -145,6 +145,7 @@ on your screen
 ```
 
 
+
 ### C compiler hello world
 
 ```
@@ -169,3 +170,23 @@ void main()
 Q3-5:  cut and paste the C code into your own hello.c and compile and run this program
 
 Q3-6:  observe the difference between **more** and **cat**
+
+
+## GRIP
+
+GitHub Readme Instant Preview (GRIP): a command that allows you to preview your
+[*MarkDown*](https://en.wikipedia.org/wiki/Markdown) files (README.md
+by default) in a web browser. These lecture notes are in md
+(*MarkDown*) format, they are simple text files that are a lightweight markup
+language, and they format nicely in a web brosers.
+
+Install and use it as follows
+```
+   pip install grip
+   grip Lecture2.md
+   grip Lecture3.md localhost:6420
+```
+Because python also has a built-in http (web) server, you can now open a URL on
+[http://localhost:6419](http://localhost:6419), or
+[http://localhost:6420](http://localhost:6420) in the second case. Just make sure
+to use unique port numbers.

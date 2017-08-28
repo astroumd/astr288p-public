@@ -9,11 +9,13 @@
   - GUI: Linux is changing from using X11 to Wayland
   - CLI: one and only one (though minor differences do remain between Mac and Linux)
 
+Shells can be **GUI** or **CLI** shells and act as an interface to the operating system's different services.
+
 The notes below loosely follow the tutorials in
     http://www.ee.surrey.ac.uk/Teaching/Unix/
 you are recommended to walk yourself through these.
 
-## Login shell in a terminal:  ("chicken or egg")
+## Login shell in a terminal: 
   - xterm                  (probably the oldest terminal in X11)
   - gnome-terminal         (Gnome Terminal)
   - xfce4-terminal         (XFCE4 terminal)
@@ -21,20 +23,40 @@ you are recommended to walk yourself through these.
   - emacs "M-x shell"      (yes, you can run a terminal inside of emacs, great for logging)
 
 ## Shell options (as defined in /etc/passwd, see /etc/shells)
+/etc/passwd contains essential information relevant for user login.
+An example line: 
+```
+tiberius:x:5091:500:Captain Kirk:/home/tiberius:/bin/tcsh
+```
+There's more information here than we need for the scope of this course, but the important fields are
+  - tiberius : User name.
+  - x is the password (it always comes up as 'x'; the actual encrypted password is stored elsewhere)
+  - 5091: User ID (UID)
+  - 500: Group ID (GID); we'll come back to this one later when we discuss file permissions
+  - Captain Kirk: This is a comment field.
+  - /home/tiberius/ : Path to a user's home directory when they log in.
+  - /bin/tcsh : This means that on login shell /bin/tcsh is used. This can also be a command, as opposed to a shell.
+
 CAVEAT: MacOS does not seem to use /etc/passwd (see http://docstore.mik.ua/orelly/unix3/mac/ch03_08.htm)
+
+### What shells can we use? 
+
+There are many CLI shells avaialble. Some exambles:
 
   - bash  (sh: bourne shell)
   - tcsh  (csh: C-shell)
   - ksh   (korn shell)
   - xonsh (pythonesque shell, cf. ipython)
 
+We will be using **bash**.
+
    Q2-1: how do you know which shell you are running?
 
    A2-1: as is often in UNIX, several answers possible, that all need human parsing
-	* **echo $SHELL**  (this is fool proof, run bash after tcsh or vice versa)
-	* **grep $USER /etc/passwd**
-	* **ps**
-
+   - **echo $SHELL** 
+   - **grep $USER /etc/passwd**
+   - **ps**
+   
    Q2-2: What are the allowed shells on your unix system?
    
    A2-2: **cat /etc/shells**
@@ -43,15 +65,23 @@ CAVEAT: MacOS does not seem to use /etc/passwd (see http://docstore.mik.ua/orell
 
    A2-3: yes, simply run it from the current shell (a shell within a shell; see A1)
 
+### Changing your default shell
 
-## Persistent shells with session management (cf. VNC)
-If you don't need a full graphical interface, and still want to login to server (e.g. ursa) and maintain your session,
-use any of the following programs
+In this class, we will use **bash**, although in the future you may decide to use another default shell.
+To change your default shell, type 
+```
+chsh -s /bin/bash
+```
+
+For this to take effect, you need to open a new terminal!
+
+### Persistent shells with session management (cf. VNC)
+If you don't need a full graphical interface, and still want to login to server (e.g. ursa) and maintain your session, use any of the following programs
 
   - screen        (often comes with UNIX)
   - tmux          (and there are more)
 
-
+**screen** is useful if (e.g.) you have some code taht takes a long time to execute and you don't want to have to keep the termainal open (say, if you're getting on an airplane).
 
 ## bash
 We differentiate between an *interactive*  and *login* shell. They are controlled by one or more startup ("rc") files:
@@ -126,18 +156,18 @@ If you use the **csh** variety, the **.login** and **.cshrc** files control whic
 ## Files:  the "ls" command
 
 ```
-  ls -l
-  ls -al
-  ls -lt
-  ls -ltr
-  ls -lt | tac
-  ls --full-time
+  ls -l   # l for long 
+  ls -al # all long
+  ls -lt # long, sort by modification time
+  ls -ltr # long, sort by modification time, reverse order
+  ls -lt | tac 
+  ls --full-time #what does this one do? 
 ```
-  Q2-6:  what is the | symbol do
+  Q2-6:  What is the '|' symbol doing? 
 
-  Q2-7:  what is the 'tac' command?
+  Q2-7:  What is the 'tac' command?
 
-  Q2-8:  what is all this "." and ".."
+  Q2-8:  What are '.' and '..' ?
 
 
 ## Directories:
@@ -264,8 +294,7 @@ See something interesting in the second file listing?
 
 ## Scripting:
 
-Scripting in UNIX is nothing more than a few shell commands in a text file, which you can execute directly using
-the shell (the interpreter):
+Scripting in UNIX is nothing more than a few shell commands in a text file, which you can execute directly using the shell (the interpreter):
 
 ```
      echo "echo hello world" > hello
@@ -278,6 +307,10 @@ the shell (the interpreter):
      echo $PATH
      ./hello
 ```
+
+## Permissions:
+
+In the last section, we did something. 
 
 ## Finding files:
 
@@ -303,9 +336,34 @@ the shell (the interpreter):
 ```    
 for example, the 
 ```
-    export PATH=~/bin:$PATH
+    export PATH=~/bin:${PATH}
 ```
 can be added to either the .bashrc or .bash_profile file.
+
+## Variables
+
+In many shells, there are a dumber of variables designed to make life easier
+
+  - $HOME -- The path to your home directory
+  - ~ (tilde) -- This is an alias to $HOME
+  - $PWD -- **P**ath **W**ith **D**irectory
+  - $PATH -- The list of locations of all the different executables on your system
+  - ...
+ 
+### Creating new variables  
+
+In bash, 
+```
+export WORKDIR=${HOME}/some/long/path/to/avoid/typing
+```
+allows you to quickly access the directory in question. 
+### Aliasing
+
+You can also **alias** commands for shortcuts. For example:
+```
+alias grep="grep -n --color=auto"
+```
+Now, when **grep** is called, it calls it with the **-n** and **--color** flags. 
 
 ## VNC
 
@@ -331,21 +389,4 @@ If the corresponding window looks like something from the 1980s, it is because t
 window manager (twm) was used. See **~/.vnc/xstartup**
 
 
-## GRIP
 
-GitHub Readme Instant Preview (GRIP): a command that allows you to preview your
-[*MarkDown*](https://en.wikipedia.org/wiki/Markdown) files (README.md
-by default) in a web browser. These lecture notes are in md
-(*MarkDown*) format, they are simple text files that are a lightweight markup
-language, and they format nicely in a web brosers.
-
-Install and use it as follows
-```
-   pip install grip
-   grip Lecture2.md
-   grip Lecture3.md localhost:6420
-```
-Because python also has a built-in http (web) server, you can now open a URL on
-[http://localhost:6419](http://localhost:6419), or
-[http://localhost:6420](http://localhost:6420) in the second case. Just make sure
-to use unique port numbers.
